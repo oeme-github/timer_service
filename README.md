@@ -1,3 +1,3 @@
-# SinRise-Service
+# SunRise-Service
 
-Service with Adafruit NeoPixel and freeRTOS timer simulating a sunrise.
+Service with Adafruit NeoPixel library and freeRTOS timer simulating a sunrise.
