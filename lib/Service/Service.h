@@ -40,7 +40,6 @@ class Service : public Adafruit_NeoPixel
         Service(const char* ServiceName, uint32_t TickRate);
         void ServiceInit();
         void Start();
-        void DoWork();
         void Stop();
         static void vTimerCallback(TimerHandle_t TimerHandle);
 
@@ -173,6 +172,8 @@ private:
         void entry() 
         { 
             Serial.println("-> entry SunRise");
+            stm.last_index = 0;
+            stm.counter    = 0;
             stm.Start();
             Serial.println("-> entry done");
             return; 
@@ -183,7 +184,7 @@ private:
         }
         void lightOn() 
         {
-            
+            change<LightOn>();
             return;
         }
         void sunRise()
@@ -197,6 +198,7 @@ private:
         void exit() 
         { 
             Serial.println("<- exit SunRise");
+            stm.Stop();
             return;
         }
     };

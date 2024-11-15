@@ -56,14 +56,6 @@ void Service::startSunRise()
 }
 
 
-void Service::DoWork()
-{
-    Serial.println("*** DoWork() ***");
-    Serial.printf("-> %s\n", this->gServiceName);
-
-    delay(2000);
-}
-
 void Service::Stop()
 {
     Serial.printf("Stop %s\n", this->gServiceName);
@@ -126,9 +118,9 @@ void Service::vTimerCallback(TimerHandle_t TimerHandle)
 
     if( service->counter == service->max_counter)
     {
-        service->Stop();
-        service->last_index = 0;
-        service->counter    = 0;
+        //service->Stop();
+        //service->last_index = 0;
+        //service->counter    = 0;
         service->lightState->lightOn();
     }
     else
